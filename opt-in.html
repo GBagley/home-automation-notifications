@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe - Home Automation Notifications</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.6; }
+        h1 { font-size: 1.5em; }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; font-weight: bold; margin-bottom: 4px; }
+        input[type="text"], input[type="tel"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; }
+        .checkbox-group input[type="checkbox"] { margin-top: 4px; flex-shrink: 0; }
+        .checkbox-group label { font-weight: normal; font-size: 14px; }
+        .disclosure { font-size: 13px; color: #555; margin-top: 8px; }
+        button { background: #2563eb; color: white; border: none; padding: 12px 24px; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #1d4ed8; }
+        .links { font-size: 14px; margin-top: 20px; }
+        .links a { color: #2563eb; }
+        .success { display: none; padding: 20px; background: #f0fdf4; border: 1px solid #86efac; border-radius: 4px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Subscribe to Home Automation Notifications</h1>
+    <p>Receive automated SMS alerts for system status updates, environmental monitoring, and home automation events.</p>
+
+    <form id="optinForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Mobile Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+1 (xxx) xxx-xxxx">
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="smsConsent" name="smsConsent" required>
+            <label for="smsConsent">
+                I agree to receive automated SMS notifications from Home Automation Notifications.
+                Message frequency varies (typically fewer than 10 messages per day).
+                Message and data rates may apply. Reply <strong>STOP</strong> to cancel at any time. Reply <strong>HELP</strong> for help.
+            </label>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="termsConsent" name="termsConsent" required>
+            <label for="termsConsent">
+                I have read and agree to the
+                <a href="https://gbagley.github.io/home-automation-notifications/" target="_blank">Privacy Policy</a> and
+                <a href="https://gbagley.github.io/home-automation-notifications/terms.html" target="_blank">Terms and Conditions</a>.
+            </label>
+        </div>
+
+        <p class="disclosure">
+            Your mobile phone number will never be shared or sold to third parties or used for marketing purposes.
+            You can opt out at any time by replying <strong>STOP</strong> to any message.
+        </p>
+
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <div class="success" id="successMsg">
+        <strong>You're subscribed!</strong> You will now receive home automation SMS notifications at the number you provided. Reply STOP at any time to unsubscribe.
+    </div>
+
+    <div class="links">
+        <p>
+            <a href="https://gbagley.github.io/home-automation-notifications/">Privacy Policy</a> |
+            <a href="https://gbagley.github.io/home-automation-notifications/terms.html">Terms and Conditions</a>
+        </p>
+    </div>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            document.getElementById('optinForm').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
